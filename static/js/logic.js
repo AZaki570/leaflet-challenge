@@ -95,5 +95,5 @@ const main = async () => {
     );
   }
 };
-
+// Calling main function
 main();
