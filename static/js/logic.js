@@ -1,18 +1,18 @@
 // GEOJson Api
-
+url =
+  'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson';
 const main = async () => {
   const response = await fetch(
     'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson'
   );
-  const { features } = await response.json();
+  
+  //   Map Logic here
 
-    // Inititilizing main leaflet map and storing in a variable 
   var mymap = L.map('map', {
     center: [0, 0],
     zoom: 3,
     worldCopyJump: true,
   });
-  // 
   L.tileLayer(
     'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
     {
@@ -28,11 +28,10 @@ const main = async () => {
 
   //function for creating legend
   function mapLegend(map) {
-    colors = ['#A3F600', '#DCF400', '#F7DB11', '#FDB72A', '#FCA35D', '#FF5F65']; //Color array 
+    colors = ['#A3F600', '#DCF400', '#F7DB11', '#FDB72A', '#FCA35D', '#FF5F65'];
 
-    var legend = L.control({ position: 'bottomright' }); //Define legend position
+    var legend = L.control({ position: 'bottomright' });
 
-    // Legend onAdd function 
     legend.onAdd = function () {
       var div = L.DomUtil.create('div', 'info legend'),
         categories = ['-10-10', '10-30', '30-50', '50-70', '70-90', '90+'];
