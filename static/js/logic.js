@@ -30,7 +30,7 @@ const main = async () => {
   function mapLegend(map) {
     colors = ['#A3F600', '#DCF400', '#F7DB11', '#FDB72A', '#FCA35D', '#FF5F65']; //Color array 
 
-    var legend = L.control({ position: 'bottomright' });
+    var legend = L.control({ position: 'bottomright' }); //Define legend position
 
     legend.onAdd = function () {
       var div = L.DomUtil.create('div', 'info legend'),
