@@ -32,6 +32,7 @@ const main = async () => {
 
     var legend = L.control({ position: 'bottomright' }); //Define legend position
 
+    // Legend onAdd function 
     legend.onAdd = function () {
       var div = L.DomUtil.create('div', 'info legend'),
         categories = ['-10-10', '10-30', '30-50', '50-70', '70-90', '90+'];
