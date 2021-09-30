@@ -6,7 +6,7 @@ const API_KEY =
 
 const main = async () => {
   const response = await fetch(
-    'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson'
+    'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson'
   );
   const { features } = await response.json();
 
@@ -58,17 +58,45 @@ const main = async () => {
     legend.addTo(mymap);
   }
   mapLegend();
+
+  function markerStyle(mag, depth) {
+    return {
+      fillColor: markerColor(depth),
+      radius: 11000 * mag,
+      weight: 2,
+      opacity: 1,
+      color: markerColor(depth),
+      fillOpacity: 0.8,
+    };
+  }
+
+  // Function determining the color of marker based on magnitude
+  function markerColor(depth) {
+    if (depth >= -10 && depth < 10) {
+      return '#459E22';
+    } else if (depth >= 10 && depth < 30) {
+      return '#7FB20E';
+    } else if (depth >= 30 && depth < 50) {
+      return '#BEBE02';
+    } else if (depth >= 50 && depth < 70) {
+      return '#B19A0F';
+    } else if (depth >= 70 && depth < 90) {
+      return '#B54C0B';
+    } else if (depth >= 90) {
+      return '#C00000';
+    } else {
+      return 'black';
+    }
+  }
+
   for (let feature of features) {
     let [long, lat, depth] = feature.geometry.coordinates;
     let { url, place, title, mag } = feature.properties;
-    var circle = L.circle([long, lat], {
-      color: 'black',
-      weight: 1,
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 11000 * mag,
-    }).addTo(mymap);
-    circle.bindPopup(`<b>${title}</b><br>Magnitude:${mag}<br>Place:${place}`);
+
+    var circle = L.circle([long, lat], markerStyle(mag, depth)).addTo(mymap);
+    circle.bindPopup(
+      `<b>${title}</b><br>Magnitude:${mag}<br>Place:${place}<br>Depth:${depth}`
+    );
   }
 };
 
