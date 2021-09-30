@@ -62,7 +62,7 @@ const main = async () => {
       weight: 2,
       opacity: 1,
       color: markerColor(depth),
-      fillOpacity: 0.8,
+      fillOpacity: 0.75,
     };
   }
 
