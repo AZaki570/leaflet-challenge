@@ -28,7 +28,7 @@ const main = async () => {
 
   //function for creating legend
   function mapLegend(map) {
-    colors = ['#A3F600', '#DCF400', '#F7DB11', '#FDB72A', '#FCA35D', '#FF5F65'];
+    colors = ['#A3F600', '#DCF400', '#F7DB11', '#FDB72A', '#FCA35D', '#FF5F65']; //Color array 
 
     var legend = L.control({ position: 'bottomright' });
 
