@@ -1,5 +1,6 @@
 // GEOJson Api
-
+url =
+  'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson';
 const main = async () => {
 
   const { features } = await d3.json(url).then((data) => {
