@@ -58,7 +58,7 @@ const main = async () => {
   function markerStyle(mag, depth) {
     return {
       fillColor: markerColor(depth),
-      radius: 8000 * mag,
+      radius: 10000 * mag,
       weight: 2,
       opacity: 1,
       color: markerColor(depth),
