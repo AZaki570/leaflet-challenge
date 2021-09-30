@@ -27,12 +27,14 @@ const main = async () => {
   ).addTo(mymap);
   for (let feature of features) {
     let [long, lat, depth] = feature.geometry.coordinates;
+    let { url, place, title, mag } = feature.properties;
     var circle = L.circle([long, lat], {
       color: 'red',
       fillColor: '#f03',
       fillOpacity: 0.5,
       radius: 500,
     }).addTo(mymap);
+    circle.bindPopup(`<b>${title}</b><br>Magnitude:${mag}<br>Place:${place}`);
   }
 };
 
