@@ -32,7 +32,7 @@ const main = async () => {
 
   //function for creating legend
   function mapLegend(map) {
-    colors = ['#459E22', '#7FB20E', '#BEBE02', '#B19A0F', '#B54C0B', '#C00000'];
+    colors = ['#A3F600', '#DCF400', '#F7DB11', '#FDB72A', '#FCA35D', '#FF5F65'];
 
     var legend = L.control({ position: 'bottomright' });
 
@@ -73,17 +73,17 @@ const main = async () => {
   // Function determining the color of marker based on magnitude
   function markerColor(depth) {
     if (depth >= -10 && depth < 10) {
-      return '#459E22';
+      return '#A3F600';
     } else if (depth >= 10 && depth < 30) {
-      return '#7FB20E';
+      return '#DCF400';
     } else if (depth >= 30 && depth < 50) {
-      return '#BEBE02';
+      return '#F7DB11';
     } else if (depth >= 50 && depth < 70) {
-      return '#B19A0F';
+      return '#FDB72A';
     } else if (depth >= 70 && depth < 90) {
-      return '#B54C0B';
+      return '#FCA35D';
     } else if (depth >= 90) {
-      return '#C00000';
+      return '#FF5F65';
     } else {
       return 'black';
     }
