@@ -88,7 +88,7 @@ const main = async () => {
   for (let feature of features) {
     let [long, lat, depth] = feature.geometry.coordinates;
     let { url, place, title, mag } = feature.properties;
-
+    // Popup function
     var circle = L.circle([long, lat], markerStyle(mag, depth)).addTo(mymap);
     circle.bindPopup(
       `<b>${title}</b><br>Magnitude:${mag}<br>Place:${place}<br>Depth:${depth}`
