@@ -6,13 +6,13 @@ const main = async () => {
   );
   const { features } = await response.json();
 
-  //   Map Logic here
-
+    // Inititilizing main leaflet map and storing in a variable 
   var mymap = L.map('map', {
     center: [0, 0],
     zoom: 3,
     worldCopyJump: true,
   });
+  // 
   L.tileLayer(
     'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
     {
