@@ -6,7 +6,7 @@ const API_KEY =
 
 const main = async () => {
   const response = await fetch(
-    'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson'
+    'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson'
   );
   const { features } = await response.json();
 
@@ -32,7 +32,7 @@ const main = async () => {
       color: 'red',
       fillColor: '#f03',
       fillOpacity: 0.5,
-      radius: 500,
+      radius: 13000 * mag,
     }).addTo(mymap);
     circle.bindPopup(`<b>${title}</b><br>Magnitude:${mag}<br>Place:${place}`);
   }
