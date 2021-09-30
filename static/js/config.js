@@ -1,6 +1,6 @@
 // API key
 const API_KEY =
-  'pk.eyJ1IjoiYmlsYWx0YWhzZWVuIiwiYSI6ImNrdTdkNHA4azM2NG4yb3FoOW55MzZlaDkifQ.dOmHYECQZlLrtmZq4cBncA';
+  'pk.eyJ1IjoiYmlsYWx0YWhzZWVuIiwiYSI6ImNrdTdla2V2MjBxeHoyeXBhaXk4dnRlajUifQ.ktpsbQbAbWr9a7_roGbBXw';
 
 // GEOJson Api
 
@@ -11,8 +11,8 @@ const main = async () => {
   const { features } = await response.json();
 
   //   Map Logic here
-  let [Ilong, Ilat, Idepth] = features[0].geometry.coordinates;
-  var mymap = L.map('map').setView([Ilong, Ilat], 13);
+
+  var mymap = L.map('map').setView([51.505, -0.09], 13);
   L.tileLayer(
     `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${API_KEY}`,
     {
